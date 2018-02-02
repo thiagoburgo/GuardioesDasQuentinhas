@@ -7,7 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListagemLojaComponent implements OnInit {
 
-  constructor() { }
+  lojas: Array<any> = [
+    {nome: 'Loja 1', id: 1},
+    {nome: 'Loja 2', id: 2},
+    {nome: 'Loja 3', id: 3},
+    {nome: 'Loja 4', id: 4},
+    {nome: 'Loja 5', id: 5},
+    {nome: 'Loja 6', id: 6},
+    {nome: 'Loja 7', id: 7}
+];
+
+constructor() { }
 
   ngOnInit() {
   }

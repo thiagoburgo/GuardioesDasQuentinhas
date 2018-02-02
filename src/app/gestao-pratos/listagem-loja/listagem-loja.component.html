@@ -1,3 +1,8 @@
 <p>
-  listagem-loja works!
+    listagem-loja works!
 </p>
+<ul class="collection">
+    <li *ngFor="let loja of lojas" class="collection-item">
+        <a routerLink="{{loja.id}}">{{loja.id}} - {{loja.nome}}</a>
+    </li>
+</ul>
