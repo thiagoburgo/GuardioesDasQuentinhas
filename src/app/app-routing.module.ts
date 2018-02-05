@@ -1,3 +1,4 @@
+import {SalvarAntesSairGuard} from './salvar-antes-sair.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -12,17 +13,21 @@ import { PermissionGuard } from './permission.guard';
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: '/home'},
   {path: 'home', component: HomeComponent},
-  {path: 'gestao', children: [
-    {path: 'lojas', component: ListagemLojaComponent},
-    {
-      path: 'lojas/:id',
-      component: DetalhesLojaComponent,
-      data: {
-        permissions: ['permissao1', 'permissao2']
-      },
-      canActivate: [PermissionGuard]
-    }
-  ]},
+  {
+    path: 'gestao',
+    children: [
+      {path: 'lojas', component: ListagemLojaComponent},
+      {
+        path: 'lojas/:id',
+        component: DetalhesLojaComponent,
+        canDeactivate: [SalvarAntesSairGuard],
+        data: {
+          permissions: ['permissao1', 'permissao2']
+        },
+        canActivate: [PermissionGuard]
+      }
+    ]
+  },
   {path: 'account/login', component: LoginComponent },
   {path: 'account/gestao', component: GestaoContaComponent },
   {path: '**', component: PageNotFoundComponent }
@@ -30,7 +35,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes,   {
-      enableTracing: false
+      enableTracing: false,
+      useHash: true
     }),
   GestaoPratosModule],
   exports: [RouterModule],

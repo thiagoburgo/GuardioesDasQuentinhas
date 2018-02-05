@@ -13,6 +13,17 @@
                 <p>
                     Minha loja legal tem o id: {{loja.id}}
                 </p>
+                <!-- <form> -->
+                <div class="input-field">
+                    <input #id placeholder="Id da Loja" (input)="onInput()" id="id" type="text">
+                    <label for="id">Id</label>
+                </div>
+                <div class="input-field">
+                    <input #nome placeholder="Nome da Loja" (input)="onInput()" id="nome" type="text">
+                    <label for="nome">Nome</label>
+                </div>
+                <button class="waves-effect waves-light btn" (click)="salvarLoja(id.value, nome.value)">Salvar</button>
+                <!-- </form> -->
             </div>
         </div>
     </div>

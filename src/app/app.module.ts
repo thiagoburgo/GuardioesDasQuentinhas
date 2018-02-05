@@ -1,3 +1,4 @@
+import {SalvarAntesSairGuard} from './salvar-antes-sair.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -20,7 +21,9 @@ import { AccountModule } from './account/account.module';
     AppRoutingModule,
     AccountModule
   ],
-  providers: [],
+  providers: [
+    SalvarAntesSairGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
