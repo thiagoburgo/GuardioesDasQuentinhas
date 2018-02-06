@@ -6,11 +6,17 @@ import { ListagemLojaComponent } from './listagem-loja/listagem-loja.component';
 import { MontagemPratoComponent } from './montagem-prato/montagem-prato.component';
 import { DetalhesLojaComponent } from './detalhes-loja/detalhes-loja.component';
 import { RouterModule } from '@angular/router';
+import {
+  FormsModule,
+  ReactiveFormsModule
+} from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     CadastroPorcaoComponent,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ConfirmarSairSemSalvar } from '../../shared/ConfirmarSairSemSalvar';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-detalhes-loja',
@@ -10,7 +11,10 @@ import { ConfirmarSairSemSalvar } from '../../shared/ConfirmarSairSemSalvar';
 export class DetalhesLojaComponent implements OnInit, ConfirmarSairSemSalvar {
 
 
-  loja = {id: null, nome: 'Minha Loja'};
+  loja = {
+    id: null,
+    nome: 'Minha Loja'
+  };
 
   private dadosAlterados = false;
 
@@ -29,8 +33,13 @@ export class DetalhesLojaComponent implements OnInit, ConfirmarSairSemSalvar {
     });
   }
 
-  salvarLoja(id: number, nome: string) {
-    console.log(`Loja: Id=${id}, Nome=${nome}`);
+  salvarLoja(frmLoja: NgForm) {
+
+    console.log(frmLoja);
+    console.log(`Loja: Id=${this.loja.id}, Nome=${this.loja.nome}`);
+
+    frmLoja.reset();
+
     this.dadosAlterados = false;
   }
 

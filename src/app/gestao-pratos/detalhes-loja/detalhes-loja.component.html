@@ -13,17 +13,41 @@
                 <p>
                     Minha loja legal tem o id: {{loja.id}}
                 </p>
-                <!-- <form> -->
-                <div class="input-field">
-                    <input #id placeholder="Id da Loja" (input)="onInput()" id="id" type="text">
-                    <label for="id">Id</label>
+                <form #frmLoja="ngForm" (ngSubmit)="salvarLoja(frmLoja); ">
+
+                    <fieldset>
+                        <legend>Conjunto de Campos</legend>
+                        <div class="input-field">
+                            <input #id="ngModel" placeholder="Id da Loja" name="id" [(ngModel)]="loja.id" type="text">
+                            <label for="id">Id</label>
+                        </div>
+                        <div class="input-field">
+                            <input #nome="ngModel" placeholder="Nome da Loja" [(ngModel)]="loja.nome" name="nome" type="text">
+                            <label for="nome">Nome</label>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="waves-effect waves-light btn">Salvar</button>
+                </form>
+                <div>
+                    {{loja | json}}
                 </div>
-                <div class="input-field">
-                    <input #nome placeholder="Nome da Loja" (input)="onInput()" id="nome" type="text">
-                    <label for="nome">Nome</label>
+                <div>
+                    <h3>Formulário: </h3>
+                    <div>touched: {{frmLoja.touched}}</div>
+                    <div>untouched: {{frmLoja.untouched}}</div>
+                    <div>dirty: {{frmLoja.dirty}}</div>
+                    <div>pristine: {{frmLoja.pristine}}</div>
+                    <div> Id: {{frmLoja.controls['id'].value}} </div>
+                    <div>Nome: {{frmLoja.controls['nome'].value}} </div>
+                    <div> Nome dirty? {{frmLoja.controls['nome'].dirty}}</div>
+
+                    <h3>Nome:</h3>
+                    <div>Nome: {{nome.value}} </div>
+                    <div>Nome dirty? {{nome.dirty}}</div>
+                    <div>Nome touched? {{nome.touched}}</div>
+                    <div>Nome pristine? {{nome.pristine}}</div>
                 </div>
-                <button class="waves-effect waves-light btn" (click)="salvarLoja(id.value, nome.value)">Salvar</button>
-                <!-- </form> -->
             </div>
         </div>
     </div>

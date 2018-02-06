@@ -1,4 +1,4 @@
-import {SalvarAntesSairGuard} from './salvar-antes-sair.guard';
+import { SalvarAntesSairGuard } from './salvar-antes-sair.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
